@@ -42,6 +42,8 @@ model = tf.keras.models.load_model('predictors.model')
 for x in range(2,7):
     img = cv.imread(f'{x}.png')[:,:,0]
     img = np.invert(np.array([img]))
+   
+
     prediction = model.predict(img)
     print(f'The predicted number is {np.argmax(prediction)}')
     plt.imshow(img[0],cmap=plt.cm.binary)
