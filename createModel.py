@@ -33,11 +33,7 @@ print(accuracy)
 
 model.save('predictors.model')
 '''
-
-
 model = tf.keras.models.load_model('predictors.model')
-
-
 
 for x in range(2,7):
     img = cv.imread(f'{x}.png')[:,:,0]
@@ -49,3 +45,4 @@ for x in range(2,7):
     plt.imshow(img[0],cmap=plt.cm.binary)
     plt.show()
  '''
+ 
