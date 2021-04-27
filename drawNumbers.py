@@ -5,6 +5,7 @@ from PIL import ImageGrab,Image
 import numpy as np
 import tensorflow as tf
 
+
 lasx = None
 lasy = None
 model = tf.keras.models.load_model('predictors.model')
@@ -36,15 +37,14 @@ def getter(widget):
 def ss(event):
     
     getter(app)
+
     img = cv.imread('img.png')[:,:,0]
-        
     img = np.invert(np.array([img]))
     
     prediction = model.predict(img)
     t = (np.argmax(prediction))
     
     messagebox.showinfo("Prediction", "I predict this number as : " + str(t))
-    
     
 
 
